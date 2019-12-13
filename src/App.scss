@@ -1,3 +1,8 @@
+$background-color: #FAFAFA;
+$body-bg: $background-color;
+
+@import '~bootstrap/scss/bootstrap.scss';
+
 .App {
   text-align: center;
 }
@@ -64,3 +69,21 @@
   }
 }
 
+.dropdown-menu.show {
+  background:transparent;
+  border: none;
+  width: 76vw;
+}
+
+.accordion > .card {
+  background:transparent;
+  border: none;
+}
+
+.card > .card-header {
+  background-color: transparent;
+}
+
+.card-body {
+  display: flex;
+}
