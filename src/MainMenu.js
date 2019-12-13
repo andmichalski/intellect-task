@@ -2,6 +2,10 @@ import React, { Component } from 'react';
 import Accordion from 'react-bootstrap/Accordion'
 import Card from 'react-bootstrap/Card'
 import Button from 'react-bootstrap/Button'
+import Dropdown from 'react-bootstrap/Dropdown'
+import Navbar from "react-bootstrap/Navbar";
+import Nav from "react-bootstrap/Nav";
+import NavDropdown from "react-bootstrap/NavDropdown";
 
 class MainMenu extends Component {
     constructor(props) {
@@ -34,12 +38,11 @@ class MainMenu extends Component {
         }
         return data;
     };
-    render() {
-        const items = Object.keys(this.props.itemData);
-        const categoryData = this.props.itemData['Kategorie'];
+
+    elementsIterator = (categories) => {
         let elements = [];
         let i = 0;
-        for (const [element, groups] of Object.entries(categoryData)) {
+        for (const [element, groups] of Object.entries(categories)) {
             const groupData = this.groupIterator(groups);
             elements.push(
                 <Card>
@@ -57,21 +60,38 @@ class MainMenu extends Component {
             );
             i++;
         }
-        console.log(typeof categoryData)
+        return elements;
+    };
+
+    categoriesIterator = () => {
+       let categories = [];
+        for (const [category, elements] of Object.entries(this.props.itemData)) {
+            const elementData = this.elementsIterator(elements);
+            categories.push(
+                <NavDropdown title={category} id="basic-nav-dropdown">
+                    <Accordion defaultActiveKey="0">
+                        { elementData }
+                    </Accordion>
+                </NavDropdown>
+            )
+        }
+        return categories;
+    };
+
+    render() {
+        const categories = this.categoriesIterator()
         return (
             <div className="MainMenu">
                 <div className="TopMenu">
-                    <ul>
-                        {items.map((item, index) => {
-                            return <li key={index}><a href={''}>{item}</a></li>
-                        })}
-                    </ul>
+                    <Navbar bg="light" expand="lg">
+                        <Navbar.Toggle aria-controls="basic-navbar-nav" />
+                        <Navbar.Collapse id="basic-navbar-nav">
+                            <Nav className="mr-auto">
+                                {categories}
+                            </Nav>
+                        </Navbar.Collapse>
+                    </Navbar>
                 </div>
-                <div>
-                </div>
-                <Accordion defaultActiveKey="0">
-                    { elements }
-                </Accordion>
             </div>
         );
     }
