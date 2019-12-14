@@ -4,7 +4,7 @@
     "items": {
       "Nasza oferta": {
         "Kategorie": {
-          "Element 1": {
+          "ELEMENT 1": {
             "Grupa 1": [
               "Element Podmenu",
               "Element Podmenu",
@@ -48,13 +48,13 @@
               "XS30, Macro TEST"
             ]
           },
-          "Element 2": {
+          "ELEMENT 2": {
             "Grupa 1": [
               "Element Podmenu",
               "Element Podmenu"
             ]
           },
-          "Element 3": {
+          "ELEMENT 3": {
             "Grupa 1": [
               "Element Podmenu",
               "Element Podmenu"
@@ -62,7 +62,7 @@
           }
         },
         "Kategorie 2": {
-          "Element 1": {
+          "ELEMENT 1": {
             "Grupa 1": [
               "Element Podmenu",
               "Element Podmenu",
@@ -72,7 +72,7 @@
           }
         },
         "Oferta": {
-          "Element 1": {
+          "ELEMENT 1": {
             "Grupa 1": [
               "Element Podmenu",
               "Element Podmenu",
@@ -80,7 +80,7 @@
               "Element Podmenu"
             ]
           },
-          "Element 2": {
+          "ELEMENT 2": {
             "Grupa 1": [
               "Element Podmenu",
               "Element Podmenu"
@@ -89,7 +89,16 @@
         }
       },
       "Kolejny element": {
-        "Element 1": {}
+        "Oferta": {
+          "ELEMENT 1": {
+            "Grupa 1": [
+              "Element Podmenu",
+              "Element Podmenu",
+              "Element Podmenu",
+              "Element Podmenu"
+            ]
+          }
+        }
       }
     }
   }

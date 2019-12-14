@@ -82,8 +82,14 @@ $body-bg: $background-color;
 
 .card > .card-header {
   background-color: transparent;
+  text-align: left;
 }
 
 .card-body {
   display: flex;
+  text-align: left;
 }
+
+//.dropdown-toggle.nav-link.active {
+//  background-color: blue !important;
+//}

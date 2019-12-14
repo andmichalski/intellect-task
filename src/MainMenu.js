@@ -4,8 +4,9 @@ import Card from 'react-bootstrap/Card'
 import Button from 'react-bootstrap/Button'
 import Navbar from "react-bootstrap/Navbar";
 import Nav from "react-bootstrap/Nav";
-import NavDropdown from "react-bootstrap/NavDropdown";
 import Table from "react-bootstrap/Table";
+import NavItem from "react-bootstrap/NavItem";
+import NavLink from "react-bootstrap/NavLink";
 
 class MainMenu extends Component {
     constructor(props) {
@@ -13,9 +14,15 @@ class MainMenu extends Component {
         console.log(this.props)
     }
 
+    state = {};
+    toggleMenu = (category, categoryId) => {
+        this.setState(({menuOpen}) => ({menuOpen: !menuOpen, category: category, categoryId: categoryId}))
+    };
+
+
     itemsIterator = (items) => {
         let dataItems = [];
-        for (const item of Object.entries(items)) {
+        for (const item of items) {
             dataItems.push(
                 <tr>
                     <td><a href={''}>{item}</a></td>
@@ -26,6 +33,7 @@ class MainMenu extends Component {
         return dataItems;
 
     };
+
     groupIterator = (groups) => {
         let data = [];
         for (const [group, items] of Object.entries(groups)) {
@@ -72,18 +80,26 @@ class MainMenu extends Component {
 
     categoriesIterator = () => {
         let categories = [];
+        let categoriesNames = [];
+        let elementsInCategory = [];
+        let categoryId = 0;
         for (const [category, elements] of Object.entries(this.props.itemData)) {
-            const elementData = this.elementsIterator(elements);
+            elementsInCategory.push([this.elementsIterator(elements)]);
+            categoriesNames.push(category);
+            const id = categoryId;
+
             categories.push(
-                <NavDropdown className='Dropdown' title={category} id="basic-nav-dropdown"
-                             justified>
-                    <Accordion className="Accordion" defaultActiveKey="0">
-                        {elementData}
-                    </Accordion>
-                </NavDropdown>
-            )
+                <Nav className="mr-auto" activeKey={category} navbar>
+                        <NavLink active={this.state.menuOpen} onClick={() => this.toggleMenu(category, id)}
+                                 className={"dropdown-toggle nav-link"}
+                        style={this.state.menuOpen ? this.state.categoryId === categoryId ?  {backgroundColor: "white"} : {} : {}}
+                        >{category}</NavLink>
+
+                </Nav>
+            );
+            categoryId++;
         }
-        return categories;
+        return [categoriesNames, categories, elementsInCategory];
     };
 
     render() {
@@ -94,12 +110,15 @@ class MainMenu extends Component {
                     <Navbar bg="light" expand="lg">
                         <Navbar.Toggle aria-controls="basic-navbar-nav"/>
                         <Navbar.Collapse id="basic-navbar-nav">
-                            <Nav className="mr-auto">
-                                {categories}
-                            </Nav>
+                            {categories[1]}
                         </Navbar.Collapse>
                     </Navbar>
                 </div>
+                {this.state.menuOpen &&
+                <Accordion className="Accordion" defaultActiveKey="0">
+                    {categories[2][categories[0].indexOf(this.state.category)]}
+                </Accordion>
+                }
             </div>
         );
     }
