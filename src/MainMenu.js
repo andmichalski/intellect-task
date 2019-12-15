@@ -8,9 +8,6 @@ import Table from "react-bootstrap/Table";
 import NavLink from "react-bootstrap/NavLink";
 
 class MainMenu extends Component {
-    constructor(props) {
-        super(props);
-    }
 
     state = {};
     toggleMenu = (category, categoryId) => {
@@ -30,7 +27,6 @@ class MainMenu extends Component {
                     <td><a href={''}>{item}</a></td>
                 </tr>
             );
-
         }
         return dataItems;
 
@@ -129,7 +125,7 @@ class MainMenu extends Component {
         return (
             <div className="MainMenu">
                 <div className="TopMenu">
-                    <Navbar classname='ml-auto"' expand="lg">
+                    <Navbar className='ml-auto"' expand="lg">
                         <Navbar.Toggle aria-controls="basic-navbar-nav"/>
                         <Navbar.Collapse id="basic-navbar-nav">
                             {categories[1]}
