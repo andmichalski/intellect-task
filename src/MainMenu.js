@@ -10,7 +10,6 @@ import NavLink from "react-bootstrap/NavLink";
 class MainMenu extends Component {
     constructor(props) {
         super(props);
-        console.log(this.props)
     }
 
     state = {};
@@ -91,6 +90,13 @@ class MainMenu extends Component {
         }
     };
 
+    closeMenu = () => {
+        this.setState(({menuOpen}) => ({
+            menuOpen: !menuOpen,
+        }))
+
+    };
+
     categoriesIterator = () => {
         let categories = [];
         let categoriesNames = [];
@@ -111,7 +117,6 @@ class MainMenu extends Component {
                         {category}
                         {this.arrow(categoryId)}
                     </NavLink>
-
                 </Nav>
             );
             categoryId++;
@@ -129,6 +134,7 @@ class MainMenu extends Component {
                         <Navbar.Collapse id="basic-navbar-nav">
                             {categories[1]}
                         </Navbar.Collapse>
+                        <Button onClick={() => this.closeMenu()}>X</Button>
                     </Navbar>
                 </div>
                 {this.state.menuOpen &&

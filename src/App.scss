@@ -3,6 +3,8 @@ $body-bg: $background-color;
 
 @import '~bootstrap/scss/bootstrap.scss';
 
+@media only screen and (max-width: 600px){html{font-size: 3.5vw;}}
+
 .App {
   text-align: center;
 }
@@ -23,39 +25,47 @@ $body-bg: $background-color;
   width: 80%;
   position: absolute;
   right: 0;
-  height: auto;
+  height: 100%;
   background-color: #e2e8ee;
 
-  .TopMenu {
-    color: #647e9d;
-    height: 15%;
-    border-bottom: 1px grey solid;
+  .MainMenu {
+    width: 100%;
+    height: auto;
+    background-color: #e2e8ee;
 
-    .navbar-nav > .nav-link {
+    .TopMenu {
       color: #647e9d;
-      padding-left: 2em;
-      padding-right: 2em;
+      height: 15%;
+      border-bottom: 1px grey solid;
+
+      .navbar-nav > .nav-link {
+        color: #647e9d;
+        padding-left: 2em;
+        padding-right: 2em;
+      }
+
+      .dropdown-toggle::after {
+        display: none;
+      }
+
+      .arrow-container {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+      }
+
+      .arrow-down {
+        width: 0;
+        height: 0;
+        vertical-align: center;
+        border-left: 0.5em solid transparent;
+        border-right: 0.5em solid transparent;
+        border-top: 0.5em solid black;
+      }
     }
 
-    .dropdown-toggle::after {
-      display: none;
-    }
-
-    .arrow-container {
-      width: 100%;
-      display: flex;
-      justify-content: center;
-    }
-
-    .arrow-down {
-      width: 0;
-      height: 0;
-      vertical-align: center;
-      border-left: 0.5em solid transparent;
-      border-right: 0.5em solid transparent;
-      border-top: 0.5em solid black;
-    }
   }
+
 }
 
 .table {
@@ -80,12 +90,16 @@ $body-bg: $background-color;
     margin-left: 30%;
     color: #848484;
   }
+    @media screen {
+     .nav-link {
+        margin-left: 0;
+     }
+  }
 
   .App-logo {
     padding-top: 10%;
     padding-bottom: 10%;
     border-bottom: 1px grey solid;
-    height: 160px;
   }
 }
 
@@ -119,3 +133,11 @@ $body-bg: $background-color;
   color: #647e9d;
 }
 
+.btn.btn-primary {
+  position: absolute;
+  top: 0;
+  right: 1%;
+  color: black;
+  border: 1px solid black;
+  background-color: transparent;
+}
