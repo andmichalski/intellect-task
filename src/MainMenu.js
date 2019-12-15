@@ -5,7 +5,6 @@ import Button from 'react-bootstrap/Button'
 import Navbar from "react-bootstrap/Navbar";
 import Nav from "react-bootstrap/Nav";
 import Table from "react-bootstrap/Table";
-import NavItem from "react-bootstrap/NavItem";
 import NavLink from "react-bootstrap/NavLink";
 
 class MainMenu extends Component {
@@ -16,7 +15,11 @@ class MainMenu extends Component {
 
     state = {};
     toggleMenu = (category, categoryId) => {
-        this.setState(({menuOpen}) => ({menuOpen: !menuOpen, category: category, categoryId: categoryId}))
+        this.setState(({menuOpen}) => ({
+            menuOpen: !menuOpen,
+            category: category,
+            categoryId: categoryId
+        }))
     };
 
 
@@ -78,11 +81,22 @@ class MainMenu extends Component {
         return elements;
     };
 
+    arrow = (categoryId) => {
+        if (this.state.menuOpen && this.state.categoryId === categoryId) {
+            return (
+                <div className='arrow-container'>
+                    <div className="arrow-down"></div>
+                </div>
+            )
+        }
+    };
+
     categoriesIterator = () => {
         let categories = [];
         let categoriesNames = [];
         let elementsInCategory = [];
         let categoryId = 0;
+        const selectedStyle = {backgroundColor: "white"};
         for (const [category, elements] of Object.entries(this.props.itemData)) {
             elementsInCategory.push([this.elementsIterator(elements)]);
             categoriesNames.push(category);
@@ -90,10 +104,13 @@ class MainMenu extends Component {
 
             categories.push(
                 <Nav className="mr-auto" activeKey={category} navbar>
-                        <NavLink active={this.state.menuOpen} onClick={() => this.toggleMenu(category, id)}
-                                 className={"dropdown-toggle nav-link"}
-                        style={this.state.menuOpen ? this.state.categoryId === categoryId ?  {backgroundColor: "white"} : {} : {}}
-                        >{category}</NavLink>
+                    <NavLink active={this.state.menuOpen}
+                             onClick={() => this.toggleMenu(category, id)}
+                             className={"dropdown-toggle nav-link"}
+                             style={this.state.menuOpen ? this.state.categoryId === categoryId ? selectedStyle : {} : {}}>
+                        {category}
+                        {this.arrow(categoryId)}
+                    </NavLink>
 
                 </Nav>
             );
@@ -107,7 +124,7 @@ class MainMenu extends Component {
         return (
             <div className="MainMenu">
                 <div className="TopMenu">
-                    <Navbar bg="light" expand="lg">
+                    <Navbar classname='ml-auto"' expand="lg">
                         <Navbar.Toggle aria-controls="basic-navbar-nav"/>
                         <Navbar.Collapse id="basic-navbar-nav">
                             {categories[1]}
