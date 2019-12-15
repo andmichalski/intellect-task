@@ -4,8 +4,8 @@
     "items": {
       "Nasza oferta": {
         "Kategorie": {
-          "Element 1": {
-            "Grupa 1": [
+          "ELEMENT 1": {
+            "GRUPA 1": [
               "Element Podmenu",
               "Element Podmenu",
               "Element Podmenu",
@@ -20,7 +20,7 @@
               "Element Podmenu",
               "Element Podmenu"
             ],
-            "Grupa 2": [
+            "GRUPA 2": [
               "XS30, Macro TEST",
               "XS30, Macro TEST",
               "XS30, Macro TEST",
@@ -29,14 +29,14 @@
               "XS30, Macro TEST",
               "XS30, Macro TEST"
             ],
-            "Grupa 3": [
+            "GRUPA 3": [
               "XS30, Macro TEST",
               "XS30, Macro TEST",
               "XS30, Macro TEST",
               "XS30, Macro TEST",
               "XS30, Macro TEST"
             ],
-            "Grupa 4": [
+            "GRUPA 4": [
               "XS30, Macro TEST",
               "XS30, Macro TEST",
               "XS30, Macro TEST",
@@ -48,22 +48,22 @@
               "XS30, Macro TEST"
             ]
           },
-          "Element 2": {
-            "Grupa 1": [
+          "ELEMENT 2": {
+            "GRUPA 1": [
               "Element Podmenu",
               "Element Podmenu"
             ]
           },
-          "Element 3": {
-            "Grupa 1": [
+          "ELEMENT 3": {
+            "GRUPA 1": [
               "Element Podmenu",
               "Element Podmenu"
             ]
           }
         },
         "Kategorie 2": {
-          "Element 1": {
-            "Grupa 1": [
+          "ELEMENT 1": {
+            "GRUPA 1": [
               "Element Podmenu",
               "Element Podmenu",
               "Element Podmenu",
@@ -72,16 +72,16 @@
           }
         },
         "Oferta": {
-          "Element 1": {
-            "Grupa 1": [
+          "ELEMENT 1": {
+            "GRUPA 1": [
               "Element Podmenu",
               "Element Podmenu",
               "Element Podmenu",
               "Element Podmenu"
             ]
           },
-          "Element 2": {
-            "Grupa 1": [
+          "ELEMENT 2": {
+            "GRUPA 1": [
               "Element Podmenu",
               "Element Podmenu"
             ]
@@ -89,7 +89,16 @@
         }
       },
       "Kolejny element": {
-        "Element 1": {}
+        "Oferta": {
+          "ELEMENT 1": {
+            "GRUPA 1": [
+              "Element Podmenu",
+              "Element Podmenu",
+              "Element Podmenu",
+              "Element Podmenu"
+            ]
+          }
+        }
       }
     }
   }

@@ -12,24 +12,29 @@
   right: 0;
   height: 100vh;
   background-color: #e2e8ee; }
-  .Menu .TopMenu {
-    color: #647e9d;
-    height: 15%;
-    border-bottom: 1px grey solid; }
-    .Menu .TopMenu ul {
-      list-style-type: none;
-      padding: 3%;
-      overflow: hidden; }
-    .Menu .TopMenu li {
-      float: left;
-      padding-left: 5%; }
-      .Menu .TopMenu li a {
-        display: block;
-        text-align: center;
-        padding: 16px;
-        text-decoration: none; }
-      .Menu .TopMenu li a:hover {
-        background-color: white; }
+
+.Menu .TopMenu {
+  color: #647e9d;
+  height: 15%;
+  border-bottom: 1px grey solid; }
+
+.Menu .TopMenu ul {
+  list-style-type: none;
+  padding: 3%;
+  overflow: hidden; }
+
+.Menu .TopMenu li {
+  float: left;
+  padding-left: 5%; }
+
+.Menu .TopMenu li a {
+  display: block;
+  text-align: center;
+  padding: 16px;
+  text-decoration: none; }
+
+.Menu .TopMenu li a:hover {
+  background-color: white; }
 
 .LeftNavBar .App-logo {
   padding-top: 10%;
@@ -46,3 +51,12 @@
 
 .LeftNavBar li {
   padding-bottom: 5%; }
+
+.dropdown-menu.show {
+  background: transparent; }
+
+.Accordion {
+  background: transparent; }
+
+.Card {
+  background: transparent; }
