@@ -30,7 +30,7 @@ class MainNavBar extends Component {
             <div>
                 <div className="NavBar">
                     <div className="MainNavBar">
-                        <img src={require(`${logoPath}`)} className="App-logo"/>
+                        <img src={require(`${logoPath}`)} className="App-logo" alt="logo"/>
                         <Nav onSelect={selectedKey => this.getContext(selectedKey)}
                              className="mr-auto" navbar>
                             {mainTopics}
